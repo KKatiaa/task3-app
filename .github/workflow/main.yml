@@ -3,7 +3,7 @@ name: CICD pipeline to deploy node.js app to aws ec2
 on:
   push:
     branches:
-      main
+      - main
 
 jobs:
   build:
