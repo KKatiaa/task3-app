@@ -14,7 +14,7 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build docker image
-        run: docker build -t task3-app .
+        run: docker build -t kateryna123/task3-app .
       - name: Publish image to docker hub
         run: docker push kateryna123/task3-app:latest
         
