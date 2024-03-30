@@ -14,17 +14,17 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} 
       - name: Build docker image
-        run: docker build -t KKatiaa/task3-app .
+        run: docker build -t kkatiaa/task3-app .
       - name: Publish image to docker hub
-        run: docker push KKatiaa/task3-app:latest
+        run: docker push kkatiaa/task3-app:latest
         
   deploy:
     needs: build
     runs-on: [ip-172-31-82-119]
     steps:
       - name: Pull image from docker hub
-        run: docker pull KKatiaa/task3-app:latest
+        run: docker pull kkatiaa/task3-app:latest
       - name: Delete old container
         run: docker rm -f task3-app-container
       - name: Run docker container
-        run: docker run -d -p 5000:5000 --name task3-app-container KKaiaa/task3-app
+        run: docker run -d -p 5000:5000 --name task3-app-container kkaiaa/task3-app
