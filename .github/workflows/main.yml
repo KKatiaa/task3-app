@@ -25,14 +25,6 @@ jobs:
       - name: Publish image to docker hub
         run: docker push kateryna123/task3-app:latest
 
-      - name: Deploy to Server 1
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.TARGET_DIR }}
-
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
