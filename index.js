@@ -1,5 +1,5 @@
 var http = require('http');
-const PORT = process.env.PORT || 443;
+const PORT = process.env.PORT || 80;
 
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
