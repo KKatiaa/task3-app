@@ -18,7 +18,7 @@ jobs:
           docker build -t task3 .
           docker tag task3:latest ${{ secrets.DOCKER_USERNAME }}/task3:latest
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker push ${{ secrets.DOCKER_REPO_URL }}/task3:latest
+          docker push kateryna123/task3:latest
       - name: SSH into EC2 instance and deploy
         uses: appleboy/ssh-action@master
         with:
@@ -26,8 +26,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.MY_EC2_SSH_KEY }}
           script: |
-            sudo docker pull ${{ secrets.DOCKER_REPO_URL }}/task3:latest
+            sudo docker pull kateryna123/task3:latest
             sudo docker stop my-node-app || true
             sudo docker rm my-node-app || true
-            sudo docker run -d -p 3000:3000 --name my-node-app ${{ secrets.DOCKER_REPO_URL }}/task3:latest
-
+            sudo docker run -d -p 3000:3000 --name my-node-app kateryna123/task3
