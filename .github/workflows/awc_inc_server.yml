@@ -16,7 +16,7 @@ jobs:
       - name: Build and push Docker image
         run: |
           docker build -t task3 .
-          docker tag task3:latest ${{ secrets.DOCKER_USERNAMEL }}/task3:latest
+          docker tag task3:latest ${{ secrets.DOCKER_USERNAME }}/task3:latest
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker push ${{ secrets.DOCKER_REPO_URL }}/task3:latest
       - name: SSH into EC2 instance and deploy
