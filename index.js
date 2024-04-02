@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/hello', (req, res) => {
-  res.status(200).send('Hello, there! This is a friendly greeting from the server.');
+  res.status(200).send('Hello, there! This is a greeting from the server.');
 });
 
 
