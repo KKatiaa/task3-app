@@ -16,7 +16,7 @@ app.get('/hello', (req, res) => {
 app.get('/about', (req, res) => {
   res.status(200).json({
     message: 'About Dummy Server',
-    description: 'This is a simple Express.js server for demonstration purposes.',
+    description: 'This is a simple Express.js for demonstration purposes.',
     version: '1.0'
   });
 });
